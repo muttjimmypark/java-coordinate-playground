@@ -1,26 +1,12 @@
-## [NEXTSTEP 플레이그라운드의 미션 진행 과정](https://github.com/next-step/nextstep-docs/blob/master/playground/README.md)
-
----
-## 학습 효과를 높이기 위해 추천하는 미션 진행 방법
-
----
-1. 피드백 강의 전까지 미션 진행 
-> 피드백 강의 전까지 혼자 힘으로 미션 진행. 미션을 진행하면서 하나의 작업이 끝날 때 마다 add, commit
-> 예를 들어 다음 숫자 야구 게임의 경우 0, 1, 2단계까지 구현을 완료한 후 push
-
-![mission baseball](https://raw.githubusercontent.com/next-step/nextstep-docs/master/playground/images/mission_baseball.png)
-
----
-2. 피드백 앞 단계까지 미션 구현을 완료한 후 피드백 강의를 학습한다.
-
----
-3. Git 브랜치를 master 또는 main으로 변경한 후 피드백을 반영하기 위한 새로운 브랜치를 생성한 후 처음부터 다시 미션 구현을 도전한다.
-
-```
-git branch -a // 모든 로컬 브랜치 확인
-git checkout master // 기본 브랜치가 master인 경우
-git checkout main // 기본 브랜치가 main인 경우
-
-git checkout -b 브랜치이름
-ex) git checkout -b apply-feedback
-```
+###이번 단원 공부 1 - Interface vs Abstract Method
+1. 인터페이스는 상수, 추상메서드, 스태틱 메서드를 작성할 수 있다.
+2. 여러 인터페이스가 하나의 구현체에 구현(implement)될 수 있다.
+3. 인터페이스에서 default method를 작성할 수 있다. 허나 한들,
+   1. 이를 구현한(!= 상속) 구현체의 state를 참조할 수 없음
+   2. equals, hashcode를 제공해서는 안됨
+4. 추상 메서드는 생성자가 있음. state를 들고 있을 수 있음 (<- ?)
+5. 추상 메서드는 그 자체로 인스턴스화 할 수 없음
+   1. 인터페이스는 인스턴스화 해서 구현체들로 자유자제 생성될 수 있다 (Car car = new Sonata(); 같이)
+###
+###Factory Method
+생성자를 리턴하는 메서드
