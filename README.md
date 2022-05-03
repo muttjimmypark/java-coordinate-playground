@@ -23,8 +23,9 @@
 ###구현할 기능 목록 (구현 전)
 1. Dot dot = new dot(int x, int y)
    1. AXIS_MAX 초과하면 IllegalArgumentException
-2. Dots dots = new dots(List$<$Dot$>$ axis)
-   1. y값을 입력받으면 해당하는 좌표의 x값들을 return한다.
+2. Dots dots = new dots(List$<$Dot$>$ dots)
+   1. getXHaveSameY : y값을 입력받으면 해당하는 좌표의 x값들을 return한다.
+   2. howManyDots : (입력받아 가지고 있을) 점의 갯수를 return한다.
 3. CoordinateCalculator
    1. AXIS_MAX = 24
    2. lineLength()
@@ -32,7 +33,7 @@
    1. scanAxises : 점1개, 2개, n개 받는 경우
       1. "-"으로 스플릿한 (0,0) 녀석들을 dots로 하고,
       2. 여러개의 (0,0)를 커스텀구분자로 다시 해체해서
-      3. 원시 x,y값을 dot들의 생성자에 넣는다 : exception을 catch하면 pri
+      3. 원시 x,y값을 dot들의 생성자에 넣는다 : exception은 Application으로 throw
       4. 묶어서 dots를 만든다
 5. OutputView
    1. printIllegalInputMessage : sout(e.getMessage); (InputView.scanTwoAxis;)
@@ -48,6 +49,8 @@
 6. Application psvm
    1. Dots dots; double calculateResult;
    2. dots = InputView.scanAxises();
+      1. exception 발생하면 OutputView.printIllegalInputMessage() 후 처음부터 다시 입력받기
    3. OutputView.printGraph(dots);
-   4. calculateResult = CoordinateCalculator(dots);
-   5. OutputView.printCalculateMessage(calculateResult);
+   4. if(dots.howManyDots() == 2)
+      1. calculateResult = CoordinateCalculator(dots);
+      2. OutputView.printCalculateMessage(calculateResult);
