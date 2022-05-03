@@ -24,22 +24,22 @@
 6. 좌표값을 두 개 입력한 경우, 두 점을 잇는 직선으로 가정한다. 좌표값과 좌표값 사이는 '-' 문자로 구분한다.
 7. 직선인 경우는 두 점 사이 거리를 계산해서 출력한다.
 
-### 구현할 기능 목록 (구현 전)
+### 구현할 기능 목록
 1. Dot dot = new dot(int x, int y)
    1. AXIS_MAX 초과하면 IllegalArgumentException
 2. Dots dots = new dots(List$<$Dot$>$ dots)
-   1. getXHaveSameY : y값을 입력받으면 해당하는 좌표의 x값들을 return한다.
-   2. howManyDots : (입력받아 가지고 있을) 점의 갯수를 return한다.
-3. CoordinateCalculator
-   1. AXIS_MAX = 24
-   2. lineLength()
-4. InputView
+   1. DOT_AXIS_MIN = 0, DOT_AXIS_MAX = 24
+   2. getXHaveSameY : y값을 입력받으면 해당하는 좌표의 x값들을 return한다.
+   3. howManyDots : (입력받아 가지고 있을) 점의 갯수를 return한다.
+   4. coordinateCalculate : 점의 갯수에 따라 메서드 호출
+      1. lineLength : 점이 2개일때 두 점 사이 길이 리턴
+3. InputView
    1. scanAxises : 점1개, 2개, n개 받는 경우
       1. "-"으로 스플릿한 (0,0) 녀석들을 dots로 하고,
       2. 여러개의 (0,0)를 커스텀구분자로 다시 해체해서
       3. 원시 x,y값을 dot들의 생성자에 넣는다 : exception은 Application으로 throw
       4. 묶어서 dots를 만든다
-5. OutputView
+4. OutputView
    1. printIllegalInputMessage : sout(e.getMessage); (InputView.scanTwoAxis;)
    2. printGraph (Dots dots)
       1. y축과 그 왼편 index를 순차적으로 출력한다 
@@ -47,14 +47,12 @@
       2. y값이 0이되면 x축 줄을 출력한다
          1. 역시 y가 0인 좌표가 있을수 있으므로 그럴땐 줄 대신 #을 출력하여 점을 찍는다
       3. x축 밑에 x축 index를 출력한다
-   3. printCalculateMessage
-      1. CoordinateCalculator.lineLength()의 결과물을 출력
-      2. 향후 넓이값도 받으면 결과물을 출력
-6. Application psvm
+   3. printCalculateMessage (Dots dots)
+      1. dots.howManyDots()에 따라 길이는~ 넓이는~ 말머리 출력
+      2. dots.coordinateCalculate()를 연이어 출력
+5. Application psvm
    1. Dots dots; double calculateResult;
    2. dots = InputView.scanAxises();
       1. exception 발생하면 OutputView.printIllegalInputMessage() 후 처음부터 다시 입력받기
    3. OutputView.printGraph(dots);
-   4. if(dots.howManyDots() == 2)
-      1. calculateResult = CoordinateCalculator(dots);
-      2. OutputView.printCalculateMessage(calculateResult);
+   4. OutputView.printCalculateMessage(dots)

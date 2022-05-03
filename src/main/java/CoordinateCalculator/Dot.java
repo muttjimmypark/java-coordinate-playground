@@ -1,8 +1,9 @@
 package CoordinateCalculator;
 
+import static CoordinateCalculator.Dots.DOT_AXIS_MIN;
+import static CoordinateCalculator.Dots.DOT_AXIS_MAX;
+
 public class Dot {
-    public static final int DOT_AXIS_MIN = 0;
-    public static final int DOT_AXIS_MAX = 24;
     private final int x;
     private final int y;
 
@@ -22,5 +23,9 @@ public class Dot {
 
     public int getAxisX() {
         return x;
+    }
+
+    public int getAxisY() {
+        return y;
     }
 }
