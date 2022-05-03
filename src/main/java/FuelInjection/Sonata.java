@@ -4,7 +4,7 @@ public class Sonata implements Car {
     double tripDistance;
 
     public Sonata(double tripDistance) {
-        //abstract를 extend받았으면 super(tripDistance)가 됐을것
+        //abstract로 만들어진 Car를 extend받았으면 super(tripDistance)가 됐을것
         this.tripDistance = tripDistance;
     }
 
