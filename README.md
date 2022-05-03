@@ -23,7 +23,7 @@
 ###구현할 기능 목록 (구현 전)
 1. Dot dot = new dot(int x, int y)
    1. AXIS_MAX 초과하면 IllegalArgumentException
-2. Dots dots = new dots(List<Dot> axis)
+2. Dots dots = new dots(List$<$Dot$>$ axis)
    1. y값을 입력받으면 해당하는 좌표의 x값들을 return한다.
 3. CoordinateCalculator
    1. AXIS_MAX = 24
