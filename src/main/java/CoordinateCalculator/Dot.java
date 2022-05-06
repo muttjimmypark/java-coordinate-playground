@@ -1,5 +1,7 @@
 package CoordinateCalculator;
 
+import java.util.Objects;
+
 import static CoordinateCalculator.Dots.DOT_VALUE_MIN;
 import static CoordinateCalculator.Dots.DOT_VALUE_MAX;
 
@@ -17,9 +19,9 @@ public class Dot {
         this.y = y;
     }
 
-    public boolean isSameValueY(int y) {
-        return this.y == y;
-    }
+//    public boolean isSameValueY(int y) {
+//        return this.y == y;
+//    }
 
     public int getValueX() {
         return x;
@@ -27,5 +29,19 @@ public class Dot {
 
     public int getValueY() {
         return y;
+    }
+
+    //Dots.existValue()에서 객체 대 객체로 비교하므로 필요
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Dot dot = (Dot) o;
+        return x == dot.x && y == dot.y;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
 }

@@ -13,7 +13,7 @@ public class InputView {
         List<String> notValidDots = Arrays.asList(new Scanner(System.in).next().split("-"));
 
         for (String notValidDot : notValidDots) {
-            Matcher m = Pattern.compile("(" + "(.),(.)" +")").matcher(notValidDot);
+            Matcher m = Pattern.compile("(" + "(.),(.)" + ")").matcher(notValidDot);
 
             if (m.find()) {
                 result.add(new Dot(Integer.parseInt(m.group(1)), Integer.parseInt(m.group(2))));

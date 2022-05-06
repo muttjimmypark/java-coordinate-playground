@@ -1,7 +1,6 @@
 package CoordinateCalculator;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Dots {
     public static final int DOT_VALUE_MIN = 0;
@@ -16,12 +15,8 @@ public class Dots {
         return dots.size();
     }
 
-    public List<Integer> getXHaveSameY(int y) {
-        return dots.stream()
-                .filter(dot -> dot.isSameValueY(y))
-                .map(Dot::getValueX)
-                .sorted()
-                .collect(Collectors.toList());
+    public boolean existValue(int x, int y) {
+        return dots.contains(new Dot(x, y));
     }
 
     public double coordinateCalculate() {
@@ -36,4 +31,5 @@ public class Dots {
         return Math.sqrt(Math.pow(dots.get(0).getValueX() - dots.get(1).getValueX(), 2)
                 + Math.pow(dots.get(0).getValueY() - dots.get(1).getValueY(), 2));
     }
+
 }
