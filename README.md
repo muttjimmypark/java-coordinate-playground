@@ -40,7 +40,7 @@
       3. 원시 x,y값을 dot들의 생성자에 넣는다 : exception은 Application으로 throw
       4. 묶어서 dots를 만든다
 4. OutputView
-   1. printIllegalInputMessage : sout(e.getMessage); (InputView.scanTwoAxis;)
+   1. printIllegalInputMessage : sout(e.getMessage);
    2. printGraph (Dots dots)
       1. y축과 그 왼편 index를 순차적으로 출력한다 
          1. dots에 y값을 물어보고, 해당하는 좌표가 존재하면 x값만큼 공백을 출력 후 특수문자(#)로 점을 찍는다

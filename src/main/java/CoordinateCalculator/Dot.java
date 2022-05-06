@@ -1,15 +1,15 @@
 package CoordinateCalculator;
 
-import static CoordinateCalculator.Dots.DOT_AXIS_MIN;
-import static CoordinateCalculator.Dots.DOT_AXIS_MAX;
+import static CoordinateCalculator.Dots.DOT_VALUE_MIN;
+import static CoordinateCalculator.Dots.DOT_VALUE_MAX;
 
 public class Dot {
     private final int x;
     private final int y;
 
     public Dot(int x, int y) {
-        if (x < DOT_AXIS_MIN || x > DOT_AXIS_MAX
-                || y < DOT_AXIS_MIN || y > DOT_AXIS_MAX) {
+        if (x < DOT_VALUE_MIN || x > DOT_VALUE_MAX
+                || y < DOT_VALUE_MIN || y > DOT_VALUE_MAX) {
             throw new IllegalArgumentException("좌표값이 범위를 벗어났습니다 : 0~24");
         }
 
@@ -17,15 +17,15 @@ public class Dot {
         this.y = y;
     }
 
-    public boolean isSameAxisY(int y) {
+    public boolean isSameValueY(int y) {
         return this.y == y;
     }
 
-    public int getAxisX() {
+    public int getValueX() {
         return x;
     }
 
-    public int getAxisY() {
+    public int getValueY() {
         return y;
     }
 }

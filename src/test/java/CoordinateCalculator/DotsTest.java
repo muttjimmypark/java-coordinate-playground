@@ -31,15 +31,15 @@ public class DotsTest {
     }
 
     @Test
-    void lineLength() {
-        Dots lineLength = new Dots(Arrays.asList(dot0, dot3));
-        assertThat(lineLength.coordinateCalculate()).isEqualTo(5.0);
+    void coordinateCalculate() {
+        Dots forLineLengthTest = new Dots(Arrays.asList(dot0, dot3));
+        assertThat(forLineLengthTest.coordinateCalculate()).isEqualTo(5.0);
 
-        lineLength = new Dots(Arrays.asList(dot0, dot1));
-        assertEquals(1.414, lineLength.coordinateCalculate(), 0.001);
-        //밑에 이 둘의 차이가 뭐지, 둘다 통과하는데 수업자료에서는 첫번째 줄을 권유했음, 셋째줄은 검색했을때 나온 권장 사용법
-        assertThat(lineLength.coordinateCalculate()).isEqualTo(1.414, offset(0.00099));
-        assertThat(lineLength.coordinateCalculate()).isEqualTo(1.414, offset(0.001));
-        assertThat(lineLength.coordinateCalculate()).isEqualTo(1.414, offset(0.001d));
+        forLineLengthTest = new Dots(Arrays.asList(dot0, dot1));
+        assertEquals(1.414, forLineLengthTest.coordinateCalculate(), 0.001);
+        //밑에 이 셋의 차이가 뭐지, 둘다 통과하는데 수업자료에서는 첫번째 줄을 권유했음, 셋째줄은 검색했을때 나온 권장 사용법
+        assertThat(forLineLengthTest.coordinateCalculate()).isEqualTo(1.414, offset(0.00099));
+        assertThat(forLineLengthTest.coordinateCalculate()).isEqualTo(1.414, offset(0.001));
+        assertThat(forLineLengthTest.coordinateCalculate()).isEqualTo(1.414, offset(0.001d));
     }
 }

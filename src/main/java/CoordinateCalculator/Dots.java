@@ -4,9 +4,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Dots {
-    public static final int DOT_AXIS_MIN = 0;
-    public static final int DOT_AXIS_MAX = 24;
-    List<Dot> dots;
+    public static final int DOT_VALUE_MIN = 0;
+    public static final int DOT_VALUE_MAX = 24;
+    private final List<Dot> dots;
 
     public Dots(List<Dot> dots) {
         this.dots = dots;
@@ -18,8 +18,9 @@ public class Dots {
 
     public List<Integer> getXHaveSameY(int y) {
         return dots.stream()
-                .filter(dot -> dot.isSameAxisY(y))
-                .map(Dot::getAxisX)
+                .filter(dot -> dot.isSameValueY(y))
+                .map(Dot::getValueX)
+                .sorted()
                 .collect(Collectors.toList());
     }
 
@@ -32,7 +33,7 @@ public class Dots {
     }
 
     private double lineLength() {
-        return Math.sqrt(Math.pow(dots.get(0).getAxisX() - dots.get(1).getAxisX(), 2)
-                + Math.pow(dots.get(0).getAxisY() - dots.get(1).getAxisY(), 2));
+        return Math.sqrt(Math.pow(dots.get(0).getValueX() - dots.get(1).getValueX(), 2)
+                + Math.pow(dots.get(0).getValueY() - dots.get(1).getValueY(), 2));
     }
 }
