@@ -11,7 +11,7 @@ public class OutputView {
         //y축의 index와 좌표출력가능 영역
         //y가 1~24 일때 y축과 좌표 출력
         //y가 0 일때 x축 출력 까지
-        for (int y = DOT_VALUE_MAX; y > 0; y--) {
+        for (int y = DOT_VALUE_MAX; y >= 0; y--) {
             //y축 왼편 index 출력 : 홀수줄에서 공백2칸, 짝수줄에서 숫자 출력
             printIndexNumbers(y);
 
@@ -23,6 +23,7 @@ public class OutputView {
         }
 
         //x축 index 출력 부분
+        System.out.print(" ");
         for (int x = 0; x <= DOT_VALUE_MAX; x++) {
             printIndexNumbers(x);
         }
@@ -61,14 +62,12 @@ public class OutputView {
     private static void printGraphOneLine(Dots dots, int y) {
         for (int x = 0; x <= DOT_VALUE_MAX; x++) {
             if (dots.existValue(x, y)) {
-                System.out.print("##");
+                System.out.print("# ");
             } else if (x == 0 && y == 0) {
                 System.out.print("+-");
             } else if (x == 0) {
                 System.out.print("| ");
-            }
-
-            if (y == 0) {
+            } else if (y == 0) {
                 System.out.print("--");
             } else {
                 System.out.print("  ");

@@ -19,10 +19,6 @@ public class Dot {
         this.y = y;
     }
 
-//    public boolean isSameValueY(int y) {
-//        return this.y == y;
-//    }
-
     public int getValueX() {
         return x;
     }
