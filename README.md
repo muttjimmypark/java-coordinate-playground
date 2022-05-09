@@ -64,12 +64,29 @@
    2. 사각형의 넓이를 계산해서 출력한다.
 
 ### 구현할 기능 목록
-1. Dot dot
+1. Dot dot : 그대로
 2. Dots dots
    1. coordinateCalculate에서 직사각형조건(validRactangle)으로 별개의 메서드를 호출한다. (점4개가 직사각형을 구성하지 않아도 그래프는 출력되게끔)
       1. lineLength가 2개의 점을 인자로 받도록 리팩터링 (미션4를 훑어봤는데 거기서 필요함)
    2. boolean validRactangle() : 모든 점의 x,y값은 다른 점에서 각각 한번씩 쓰였다. (x1y1, x1y2, x2y1, x2y2)
    3. double rectangleSize() : 직사각형 넓이를 리턴
-3. InputView
+3. InputView : 그대로
 4. OutputView
    1. printCalculateMessage() : 점 갯수가 아닌 좌표계산값의 예외를 통해 출력여부를 결정짓게끔 리팩터링 했음.
+5. Application : 그대로
+#
+
+## 미션 4. 좌표계산기 (삼각형 면적)
+### 기능 요구사항
+1. 좌표값을 세 개 입력한 경우, 세 점을 연결하는 삼각형으로 가정한다.
+   1. 삼각형인 경우 삼각형의 넓이를 게산해서 출력한다.
+   2. 세 변의 길이를 알 때 삼각형의 넓이를 구하는 공식은 헤론의 공식을 이용해 구할 수 있다.
+
+### 구현할 기능 목록
+1. Dot dot : 그대로
+2. Dots dots
+   1. coordinateCalculate에서 점3개인 경우 별개의 메서드를 호출한다.
+   2. double triangleSize() : 헤론의 공식 기반으로 삼각형 넓이를 리턴
+3. InputView : 그대로
+4. OutputView : 그대로
+5. Application : 그대로

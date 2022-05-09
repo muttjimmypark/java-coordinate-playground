@@ -36,6 +36,9 @@ public class Dots {
         if (validRectangle()) {
             return rectangleSize();
         }
+        if (howManyDots() == 3) {
+            return triangleSize();
+        }
 
         return -1;
     }
@@ -64,5 +67,15 @@ public class Dots {
         lengths = lengths.stream().sorted().collect(Collectors.toList());
 
         return lengths.get(0) * lengths.get(1);
+    }
+
+    private double triangleSize() {
+        List<Double> lengths = Arrays.asList(
+                lineLength(dots.get(0), dots.get(1)),
+                lineLength(dots.get(0), dots.get(2)),
+                lineLength(dots.get(1), dots.get(2)));
+        double s = lengths.stream().mapToDouble(length -> length).sum() / 2;
+
+        return Math.sqrt(s * (s - lengths.get(0)) * (s - lengths.get(1)) * (s - lengths.get(2)));
     }
 }

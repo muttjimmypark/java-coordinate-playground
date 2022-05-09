@@ -17,9 +17,7 @@ public class InputView {
             Matcher m = Pattern.compile("(\\d+),(\\d+)").matcher(notValidDot);
 
             if (m.find()) {
-                System.out.println(m.groupCount());
                 result.add(new Dot(Integer.parseInt(m.group(1)), Integer.parseInt(m.group(2))));
-                System.out.println(result);
             }
         }
 

@@ -59,4 +59,12 @@ public class DotsTest {
 
         assertThat(dots.coordinateCalculate()).isEqualTo(4);
     }
+
+    @Test
+    void triangleSize_coordinateCalculate() {
+        dot1 = new Dot(3, 0);
+        dots = new Dots(Arrays.asList(dot0, dot1, dot3));
+
+        assertThat(dots.coordinateCalculate()).isEqualTo(6);
+    }
 }
