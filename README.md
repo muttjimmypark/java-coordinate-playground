@@ -40,19 +40,36 @@
       3. 원시 x,y값을 dot들의 생성자에 넣는다 : exception은 Application으로 throw
       4. 묶어서 dots를 만든다
 4. OutputView
-   1. printIllegalInputMessage : sout(e.getMessage);
-   2. printGraph (Dots dots)
+   1. printGraph (Dots dots)
       1. y축과 그 왼편 index를 순차적으로 출력한다 
          1. dots.existValue false면 공백을 출력, true면 특수문자(#)로 점을 찍는다
          2. y값이 0이되면 x축 줄을 출력한다
          3. 역시 y가 0인 좌표가 있을수 있으므로 그럴땐 줄 대신 #을 출력하여 점을 찍는다
       2. x축 밑에 x축 index를 출력한다
-   3. printCalculateMessage (Dots dots)
+   2. printCalculateMessage (Dots dots)
       1. dots.howManyDots()에 따라 길이는~ 넓이는~ 말머리 출력
       2. dots.coordinateCalculate()를 연이어 출력
-6. Application psvm
+5. Application psvm
    1. Dots dots; double calculateResult;
    2. dots = InputView.scanValues();
       1. exception 발생하면 OutputView.printIllegalInputMessage() 후 처음부터 다시 입력받기
    3. OutputView.printGraph(dots);
    4. OutputView.printCalculateMessage(dots)
+#
+
+## 미션 3. 좌표계산기 (사각형 면적)
+### 기능 요구사항
+1. 좌표값을 네 개 입력한 경우, 네 점을 연결하는 사각형으로 가정한다.
+   1. 네 점이 뒤틀어진 사다리꼴이나 마름모는 제외하고 직사각형만 허용하도록 검사한다.
+   2. 사각형의 넓이를 계산해서 출력한다.
+
+### 구현할 기능 목록
+1. Dot dot
+2. Dots dots
+   1. coordinateCalculate에서 직사각형조건(validRactangle)으로 별개의 메서드를 호출한다. (점4개가 직사각형을 구성하지 않아도 그래프는 출력되게끔)
+      1. lineLength가 2개의 점을 인자로 받도록 리팩터링 (미션4를 훑어봤는데 거기서 필요함)
+   2. boolean validRactangle() : 모든 점의 x,y값은 다른 점에서 각각 한번씩 쓰였다. (x1y1, x1y2, x2y1, x2y2)
+   3. double rectangleSize() : 직사각형 넓이를 리턴
+3. InputView
+4. OutputView
+   1. printCalculateMessage() : 점 갯수가 아닌 좌표계산값의 예외를 통해 출력여부를 결정짓게끔 리팩터링 했음.

@@ -3,10 +3,6 @@ package CoordinateCalculator;
 import static CoordinateCalculator.Dots.DOT_VALUE_MAX;
 
 public class OutputView {
-    public static void printIllegalInputMessage(Exception e) {
-        System.out.println(e.getMessage());
-    }
-
     public static void printGraph(Dots dots) {
         //y축의 index와 좌표출력가능 영역
         //y가 1~24 일때 y축과 좌표 출력
@@ -33,8 +29,9 @@ public class OutputView {
 
     public static void printCalculateMessage(Dots dots) {
         int howManyDots = dots.howManyDots();
+        double coordinateCalculate = dots.coordinateCalculate();
 
-        if (howManyDots < 2) {
+        if (coordinateCalculate == -1) {
             return;
         }
 
@@ -44,7 +41,7 @@ public class OutputView {
             System.out.print("넓이 : ");
         }
 
-        System.out.println(dots.coordinateCalculate());
+        System.out.println(coordinateCalculate);
     }
 
     private static void printIndexNumbers(int i) {

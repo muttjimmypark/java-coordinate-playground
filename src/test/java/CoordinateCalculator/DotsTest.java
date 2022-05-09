@@ -26,7 +26,7 @@ public class DotsTest {
     }
 
     @Test
-    void coordinateCalculate() {
+    void lineLength_coordinateCalculate() {
         Dots forLineLengthTest = new Dots(Arrays.asList(dot0, dot3));
         assertThat(forLineLengthTest.coordinateCalculate()).isEqualTo(5.0);
 
@@ -36,5 +36,27 @@ public class DotsTest {
         assertThat(forLineLengthTest.coordinateCalculate()).isEqualTo(1.414, offset(0.00099));
         assertThat(forLineLengthTest.coordinateCalculate()).isEqualTo(1.414, offset(0.001));
         assertThat(forLineLengthTest.coordinateCalculate()).isEqualTo(1.414, offset(0.001d));
+    }
+
+    @Test
+    void validRactangle() {
+        assertThat(dots.validRectangle()).isFalse();
+
+        dot2 = new Dot(1, 0);
+        dot3 = new Dot(0, 1);
+        dots = new Dots(Arrays.asList(dot0, dot1, dot2, dot3));
+
+        assertThat(dots.validRectangle()).isTrue();
+    }
+
+    @Test
+    void rectangleSize_coordinateCalculate() {
+        assertThat(dots.coordinateCalculate()).isEqualTo(-1);
+
+        dot1 = new Dot(2, 0);
+        dot3 = new Dot(0, 2);
+        dots = new Dots(Arrays.asList(dot0, dot1, dot2, dot3));
+
+        assertThat(dots.coordinateCalculate()).isEqualTo(4);
     }
 }
