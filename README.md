@@ -29,8 +29,8 @@
    1. VALUE_MAX 초과하면 IllegalArgumentException
 2. Dots dots = new dots(List$<$Dot$>$ dots)
    1. DOT_VALUE_MIN = 0, DOT_VALUE_MAX = 24
-   2. existValue(x,y) : 해당 좌표값을 가진 dot이 있는지 t/f를 return한다.
-   3. howManyDots : (입력받아 가지고 있을) 점의 갯수를 return한다.
+   2. existValue(x,y) : 해당 좌표값을 가진 dot이 있는지 t/f를 return한다. <- contains로 명명
+   3. howManyDots : (입력받아 가지고 있을) 점의 갯수를 return한다. <- getSize로 명명
    4. coordinateCalculate : 점의 갯수에 따라 메서드 호출
       1. lineLength : 점이 2개일때 두 점 사이 길이 리턴
 3. InputView
@@ -42,12 +42,12 @@
 4. OutputView
    1. printGraph (Dots dots)
       1. y축과 그 왼편 index를 순차적으로 출력한다 
-         1. dots.existValue false면 공백을 출력, true면 특수문자(#)로 점을 찍는다
+         1. dots.contains false면 공백을 출력, true면 특수문자(#)로 점을 찍는다
          2. y값이 0이되면 x축 줄을 출력한다
          3. 역시 y가 0인 좌표가 있을수 있으므로 그럴땐 줄 대신 #을 출력하여 점을 찍는다
       2. x축 밑에 x축 index를 출력한다
    2. printCalculateMessage (Dots dots)
-      1. dots.howManyDots()에 따라 길이는~ 넓이는~ 말머리 출력
+      1. dots.size()에 따라 길이는~ 넓이는~ 말머리 출력
       2. dots.coordinateCalculate()를 연이어 출력
 5. Application psvm
    1. Dots dots; double calculateResult;

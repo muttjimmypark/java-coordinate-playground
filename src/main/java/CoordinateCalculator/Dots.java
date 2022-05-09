@@ -7,22 +7,23 @@ import java.util.stream.Collectors;
 public class Dots {
     public static final int DOT_VALUE_MIN = 0;
     public static final int DOT_VALUE_MAX = 24;
+    public static final int NOT_CALCULATED = -1;
     private final List<Dot> dots;
 
     public Dots(List<Dot> dots) {
         this.dots = dots;
     }
 
-    public int howManyDots() {
+    public int getSize() {
         return dots.size();
     }
 
-    public boolean existValue(int x, int y) {
-        return dots.contains(new Dot(x, y));
+    public boolean contains(Dot dot) {
+        return dots.contains(dot);
     }
 
     public boolean validRectangle() {
-        if (howManyDots() != 4) {
+        if (getSize() != 4) {
             return false;
         }
 
@@ -30,17 +31,17 @@ public class Dots {
     }
 
     public double coordinateCalculate() {
-        if (howManyDots() == 2) {
+        if (getSize() == 2) {
             return lineLength(dots.get(0), dots.get(1));
         }
         if (validRectangle()) {
             return rectangleSize();
         }
-        if (howManyDots() == 3) {
+        if (getSize() == 3) {
             return triangleSize();
         }
 
-        return -1;
+        return NOT_CALCULATED;
     }
 
     private double lineLength(Dot dot1, Dot dot2) {

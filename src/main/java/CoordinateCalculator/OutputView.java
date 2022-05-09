@@ -1,6 +1,7 @@
 package CoordinateCalculator;
 
 import static CoordinateCalculator.Dots.DOT_VALUE_MAX;
+import static CoordinateCalculator.Dots.NOT_CALCULATED;
 
 public class OutputView {
     public static void printGraph(Dots dots) {
@@ -28,10 +29,10 @@ public class OutputView {
     }
 
     public static void printCalculateMessage(Dots dots) {
-        int howManyDots = dots.howManyDots();
+        int howManyDots = dots.getSize();
         double coordinateCalculate = dots.coordinateCalculate();
 
-        if (coordinateCalculate == -1) {
+        if (coordinateCalculate == NOT_CALCULATED) {
             return;
         }
 
@@ -58,7 +59,7 @@ public class OutputView {
 
     private static void printGraphOneLine(Dots dots, int y) {
         for (int x = 0; x <= DOT_VALUE_MAX; x++) {
-            if (dots.existValue(x, y)) {
+            if (dots.contains(new Dot(x, y))) {
                 System.out.print("# ");
             } else if (x == 0 && y == 0) {
                 System.out.print("+-");

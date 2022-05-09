@@ -16,13 +16,13 @@ public class DotsTest {
     Dots dots = new Dots(Arrays.asList(dot0, dot1, dot2, dot3));
 
     @Test
-    void existValue() {
-        assertThat(dots.existValue(2, 2)).isTrue();
+    void contains() {
+        assertThat(dots.contains(new Dot(2,2))).isTrue();
     }
 
     @Test
-    void howManyDots() {
-        assertThat(dots.howManyDots()).isEqualTo(4);
+    void getSize() {
+        assertThat(dots.getSize()).isEqualTo(4);
     }
 
     @Test
