@@ -2,7 +2,7 @@ package coordinate;
 
 import java.util.List;
 
-public class Triangle extends AbstractFigure {
+public class Triangle extends AbstractFigure implements FigureCreator {
     public static final int TRIANGLE_POINT_SIZE = 3;
 
     public Triangle(List<Point> points) {
@@ -22,5 +22,10 @@ public class Triangle extends AbstractFigure {
     @Override
     public double area() {
         return 0;
+    }
+
+    @Override
+    public Figure create(List<Point> points) {
+        return new Triangle(points);
     }
 }
