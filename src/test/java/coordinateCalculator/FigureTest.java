@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.*;
 
 public class FigureTest {
     List<Point> points;
@@ -37,8 +36,10 @@ public class FigureTest {
     void makeLine() {
         points.add(new Point(1,0));
         points.add(new Point(2,0));
+        Figure figure = FigureFactory.getFigure(points);
 
-        assertThat(FigureFactory.getFigure(points)).isInstanceOf(Line.class);
+        assertThat(figure).isInstanceOf(Line.class);
+        assertThat(figure.calculateValue()).isEqualTo(1.0, offset(0.1d));
     }
 
     @Test
@@ -46,8 +47,10 @@ public class FigureTest {
         points.add(new Point(1,0));
         points.add(new Point(2,0));
         points.add(new Point(2,3));
+        Figure figure = FigureFactory.getFigure(points);
 
-        assertThat(FigureFactory.getFigure(points)).isInstanceOf(Triangle.class);
+        assertThat(figure).isInstanceOf(Triangle.class);
+        assertThat(figure.calculateValue()).isEqualTo(1.5, offset(0.1d));
     }
 
     @Test
@@ -56,8 +59,10 @@ public class FigureTest {
         points.add(new Point(2,2));
         points.add(new Point(2,1));
         points.add(new Point(1,2));
+        Figure figure = FigureFactory.getFigure(points);
 
-        assertThat(FigureFactory.getFigure(points)).isInstanceOf(Rectangle.class);
+        assertThat(figure).isInstanceOf(Rectangle.class);
+        assertThat(figure.calculateValue()).isEqualTo(1.0, offset(0.1d));
     }
 
     @Test

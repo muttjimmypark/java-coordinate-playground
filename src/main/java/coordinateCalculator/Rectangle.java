@@ -27,11 +27,11 @@ public class Rectangle extends AbstractFigure {
     }
 
     @Override
-    protected double calculateValue() {
+    public double calculateValue() {
         List<Double> distances = Arrays.asList(
                 points.get(0).getDistanceWithAnother(points.get(1)),
-                points.get(0).getDistanceWithAnother(points.get(1)),
-                points.get(0).getDistanceWithAnother(points.get(1))
+                points.get(0).getDistanceWithAnother(points.get(2)),
+                points.get(0).getDistanceWithAnother(points.get(3))
         );
         Collections.sort(distances);
 

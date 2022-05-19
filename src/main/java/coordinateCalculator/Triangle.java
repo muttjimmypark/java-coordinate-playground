@@ -8,7 +8,7 @@ public class Triangle extends AbstractFigure {
     }
 
     @Override
-    protected double calculateValue() {
+    public double calculateValue() {
         double a = points.get(0).getDistanceWithAnother(points.get(1));
         double b = points.get(0).getDistanceWithAnother(points.get(2));
         double c = points.get(1).getDistanceWithAnother(points.get(2));

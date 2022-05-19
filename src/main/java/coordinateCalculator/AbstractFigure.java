@@ -1,6 +1,7 @@
 package coordinateCalculator;
 
 import java.util.List;
+import java.util.Objects;
 
 public abstract class AbstractFigure implements Figure {
     protected static final String MESSAGE_AREA_IS = "넓이는 ";
@@ -19,10 +20,21 @@ public abstract class AbstractFigure implements Figure {
         return MESSAGE_AREA_IS + calculateValue();
     }
 
-    protected abstract double calculateValue();
-
     @Override
     public int getPointsSize() {
         return points.size();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AbstractFigure that = (AbstractFigure) o;
+        return Objects.equals(points, that.points);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(points);
     }
 }

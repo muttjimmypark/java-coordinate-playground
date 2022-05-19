@@ -15,7 +15,7 @@ public class Line extends AbstractFigure {
     }
 
     @Override
-    protected double calculateValue() {
+    public double calculateValue() {
         return points.get(0).getDistanceWithAnother(points.get(1));
     }
 }
