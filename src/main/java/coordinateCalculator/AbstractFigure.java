@@ -26,6 +26,11 @@ public abstract class AbstractFigure implements Figure {
     }
 
     @Override
+    public boolean existPoint(int x, int y) {
+        return points.contains(new Point(x, y));
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
