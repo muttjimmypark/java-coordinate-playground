@@ -1,8 +1,7 @@
 package coordinateCalculator;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+import java.util.function.Function;
 
 public class Rectangle extends AbstractFigure {
     private static final String MESSAGE_INVALID_RECTANGLE = "입력받은 사각형은 직사각형이 아닙니다.";
@@ -13,17 +12,17 @@ public class Rectangle extends AbstractFigure {
     }
 
     private void checkValidRectangle() {
-        if (points.stream()
-                    .map(Point::getX)
-                    .distinct()
-                    .count() != 2
-                ||
-                points.stream()
-                        .map(Point::getY)
-                        .distinct()
-                        .count() != 2 ) {
+        if (checkValidCoordinates('x') || checkValidCoordinates('y')) {
             throw new IllegalArgumentException(MESSAGE_INVALID_RECTANGLE);
         }
+    }
+
+    private boolean checkValidCoordinates(char xOrY) {
+        Map<Character, Boolean> getters = new HashMap<>();
+        getters.put('x', points.stream().map(Point::getX).distinct().count() != 2);
+        getters.put('y', points.stream().map(Point::getY).distinct().count() != 2);
+
+        return getters.get(xOrY);
     }
 
     @Override
