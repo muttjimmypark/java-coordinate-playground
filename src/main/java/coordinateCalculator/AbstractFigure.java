@@ -1,7 +1,10 @@
 package coordinateCalculator;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public abstract class AbstractFigure implements Figure {
     protected static final String MESSAGE_AREA_IS = "넓이는 ";
@@ -30,13 +33,13 @@ public abstract class AbstractFigure implements Figure {
         return points.contains(new Point(x, y));
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        AbstractFigure that = (AbstractFigure) o;
-        return Objects.equals(points, that.points);
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        AbstractFigure that = (AbstractFigure) o;
+//        return Objects.equals(points, that.points);
+//    }
 
     @Override
     public int hashCode() {
