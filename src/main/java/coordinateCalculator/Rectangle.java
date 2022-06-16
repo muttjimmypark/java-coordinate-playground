@@ -8,21 +8,14 @@ public class Rectangle extends AbstractFigure {
 
     public Rectangle(List<Point> points) {
         super(points);
-        checkValidRectangle();
-    }
-
-    private void checkValidRectangle() {
-        if (checkValidCoordinates('x') || checkValidCoordinates('y')) {
+        if (checkValidCoordinates()) {
             throw new IllegalArgumentException(MESSAGE_INVALID_RECTANGLE);
         }
     }
 
-    private boolean checkValidCoordinates(char xOrY) {
-        Map<Character, Boolean> getters = new HashMap<>();
-        getters.put('x', points.stream().map(Point::getX).distinct().count() != 2);
-        getters.put('y', points.stream().map(Point::getY).distinct().count() != 2);
-
-        return getters.get(xOrY);
+    private boolean checkValidCoordinates() {
+        return points.stream().map(Point::getX).distinct().count() != 2
+                || points.stream().map(Point::getY).distinct().count() != 2;
     }
 
     @Override

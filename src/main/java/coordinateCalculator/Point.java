@@ -18,9 +18,9 @@ public class Point {
         this.y = y;
     }
 
-    private boolean validCoordinate(int xOrY) {
-        return xOrY >= COORDINATE_LOWER_LIMIT
-                && xOrY <= COORDINATE_UPPER_LIMIT;
+    private boolean validCoordinate(int position) {
+        return position >= COORDINATE_LOWER_LIMIT
+                && position <= COORDINATE_UPPER_LIMIT;
     }
 
     public double getDistanceWithAnother(Point anotherPoint) {
@@ -41,10 +41,13 @@ public class Point {
         if (o == null || getClass() != o.getClass()) return false;
         Point point = (Point) o;
         return x == point.x && y == point.y;
+//        return super.equals(o);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(x, y);
-    }
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(x, y);
+//    }
+
+
 }

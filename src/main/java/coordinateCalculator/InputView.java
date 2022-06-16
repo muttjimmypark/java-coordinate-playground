@@ -9,7 +9,9 @@ public class InputView {
     private static final String MESSAGE_SCAN_START = "좌표를 입력하세요 : ";
     public static final String MESSAGE_INVALID_POINT = "일부 점이 잘못된 입력입니다.";
     private static final String MESSAGE_INVALID_SCAN = "잘못된 입력입니다.";
-    private static final Pattern pattern = Pattern.compile("\\(([0-9]{1,2}),([0-9]{1,2})\\)");
+    private static final Pattern pointPattern = Pattern.compile("\\(([0-9]{1,2}),([0-9]{1,2})\\)");
+    private static final Pattern pointsPattern = Pattern.compile("(\\([0-9]{1,2},[0-9]{1,2}\\))(-(\\([0-9]{1,2},[0-9]{1,2}\\))){0,3}");
+
 
     public static Figure scanPoints() {
         System.out.print(MESSAGE_SCAN_START);
@@ -35,8 +37,7 @@ public class InputView {
     }
 
     private static void validPoints(String scanString) {
-        Pattern pattern = Pattern.compile("(\\([0-9]{1,2},[0-9]{1,2}\\))(-(\\([0-9]{1,2},[0-9]{1,2}\\))){0,3}");
-        Matcher matcher = pattern.matcher(scanString);
+        Matcher matcher = pointsPattern.matcher(scanString);
 
         if (!matcher.matches()) {
             throw new IllegalArgumentException(MESSAGE_INVALID_SCAN);
@@ -53,7 +54,7 @@ public class InputView {
     }
 
     private static Point stringToPoint(String scanPoint) {
-        Matcher matcher = pattern.matcher(scanPoint);
+        Matcher matcher = pointPattern.matcher(scanPoint);
         if (matcher.find()) {
             return new Point(Integer.parseInt(matcher.group(1)), Integer.parseInt(matcher.group(2)));
         }
